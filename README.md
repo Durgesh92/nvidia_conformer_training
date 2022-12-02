@@ -236,3 +236,7 @@ sudo tao speech_to_text_conformer train \
      validation_ds.num_workers=4 \
      model.tokenizer.dir=/data/indiantts/tokenizer_spe_unigram_v28
 ```
+#### Resume training from checkpoint
+- Latest checkpoint is saved at `/results/conformer/train/checkpoints/trained-model.tlt`
+- Open `specs/train_conformer_bpe_medium.yaml` and set checkpoint path for tag `resume_from_checkpoint`
+- Increase no of epochs from training command and run. This will resume training from last checkpoint
