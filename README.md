@@ -222,6 +222,15 @@ sudo tao speech_to_text_conformer download_specs -o /specs -r /results
 ```
 - open `/home/ubuntu22/Documents/asr_dataset/mix_IPA/specs` and set sample rate to `8000` at all places next to `sample_rate` tag. (this is optional step if your data has sampling rate of 8000)
 
+- Create tokanizer.
+```bash
+sudo tao speech_to_text_conformer create_tokenizer \
+   -e /specs/create_tokenizer.yaml \
+   -r /results/create_tokenizer \
+   manifests=/data/all.json \
+   output_root=/data/indiantts vocab_size=105
+```
+
 - Start training. (Make sure you run this in background, use `byobu` for ease)
 ```bash
 sudo tao speech_to_text_conformer train \
